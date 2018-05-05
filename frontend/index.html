@@ -64,16 +64,27 @@
             </div>
         </div>
     </header>
-    <section class="main-banner">
+    <section id="main-banner">
         <div class="wrapper">
-            <div>Главный баннер</div>
+            <div class="main-banner__slides">
+                <div class="main-banner__control main-banner__control--prev"></div>
+                <div class="main-banner__control main-banner__control--next"></div>
+                <div class="main-banner__slide" data-slide="1"><img src="static/img/slide_1.png" alt=""></div>
+                <div class="main-banner__slide main-banner__slide--current" data-slide="2"><img src="static/img/slide_2.png" alt=""></div>
+                <div class="main-banner__slide" data-slide="3"><img src="static/img/slide_3.png" alt=""></div>
+            </div>
+            <div class="main-banner__pagination">
+                <div class="main-banner__page" data-slide="1"></div>
+                <div class="main-banner__page main-banner__page--current" data-slide="2"></div>
+                <div class="main-banner__page" data-slide="3"></div>
+            </div>
         </div>
     </section>
     <section class="content">
         <div class="wrapper">
             <div class="catalog">
                 <div class="catalog__item">
-                    <img src="img/catalog_1.jpg" alt="Вечер с любимым" class="catalog__item-image">
+                    <img src="static/img/catalog_1.jpg" alt="Вечер с любимым" class="catalog__item-image">
                     <div class="catalog__item-info">
                         <div class="catalog__item-title catalog__item-title--love">Вечер с любимым</div>
                         <div class="catalog__item-about">Фильмы для просмотра со второй половинкой, которые порадуют и мужчин и женщин! Проведите яркий и незабываемый вечер вдвоём! Веселые комедии, невероятные приключения, увлекательная фантастика, вдохновляющие фильмы</div>
@@ -81,7 +92,7 @@
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <img src="img/catalog_2.jpg" alt="Семейный" class="catalog__item-image">
+                    <img src="static/img/catalog_2.jpg" alt="Семейный" class="catalog__item-image">
                     <div class="catalog__item-info">
                         <div class="catalog__item-title catalog__item-title--family">Семейный</div>
                         <div class="catalog__item-about">Душевные, яркие, увлекательные фильмы для просмотра всей семьёй! Порадуют молодежь, взрослых и любимых бабушек с дедушками) Объединят семью и подарят прекрасное настроение. Проведите увлекательный вечер вместе!</div>
@@ -89,7 +100,7 @@
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <img src="img/catalog_3.jpg" alt="С друзьями" class="catalog__item-image">
+                    <img src="static/img/catalog_3.jpg" alt="С друзьями" class="catalog__item-image">
                     <div class="catalog__item-info">
                         <div class="catalog__item-title catalog__item-title--friends">С друзьями</div>
                         <div class="catalog__item-about">Объединяющие хорошую компанию. Светлые, яркие, увлекательные фильмы: невероятные приключения, уморительные комедии, вдохновляющие биографии, спорт, фантастика, изумительные истории о вере в себя, героях, личностях и др.</div>
@@ -97,7 +108,7 @@
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <img src="img/catalog_4.jpg" alt="Детям" class="catalog__item-image">
+                    <img src="static/img/catalog_4.jpg" alt="Детям" class="catalog__item-image">
                     <div class="catalog__item-info">
                         <div class="catalog__item-title catalog__item-title--children">Детям</div>
                         <div class="catalog__item-about">Добрые, Светлые, поучительные фильмы о достойных людях и порядочных поступках. Помогут деткам увидеть пРавильные ориентиры в жизни ("по Ра" или "по Свету"), замечать и ценить хороших людей, золотые качества души</div>
@@ -105,7 +116,7 @@
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <img src="img/catalog_5.jpg" alt="Подборки" class="catalog__item-image">
+                    <img src="static/img/catalog_5.jpg" alt="Подборки" class="catalog__item-image">
                     <div class="catalog__item-info">
                         <div class="catalog__item-title catalog__item-title--mix">Подборки</div>
                         <div class="catalog__item-about">Тематические подборки фильмов на разные случаи: написывающие, вдохновляющие жить кинокартины, фильмы от депрессии, истории, лечащие душу, комедии, лучшие фильмы о любви и др.</div>

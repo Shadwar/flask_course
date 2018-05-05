@@ -7,6 +7,7 @@
 
 .wrapper {
     .wrapper();
+    position: relative;
 }
 
 header {
@@ -101,9 +102,70 @@ header {
     }
 }
 
-.main-banner {
+#main-banner {
     height: 560px;
     margin-bottom: 63px;
+}
+
+.main-banner {
+    &__control {
+        width: 22px;
+        height: 37px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: red;
+        cursor: pointer;
+
+        &--prev {
+            left: 20px;
+            background: inline('arrow_left.svg');
+        }
+
+        &--next {
+            right: 20px;
+            background: inline('arrow_right.svg');
+        }
+    }
+
+    &__slides {
+        position: relative;
+    }
+
+    &__slide {
+        display: none;
+
+        &--current {
+            display: block;
+        }
+    }
+
+    &__pagination {
+        margin: 54px auto 0;
+        height: 21px;
+        text-align: center;
+    }
+
+    &__page {
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        background-color: #D8D0F2;
+        margin-right: 14px;
+        cursor: pointer;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &--current {
+            width: 21px;
+            height: 21px;
+            background-color: #CABCF5;
+        }
+    }
 }
 
 .catalog {

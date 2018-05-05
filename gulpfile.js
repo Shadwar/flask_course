@@ -5,6 +5,7 @@ const less = require('gulp-less');
 const browserSync = require('browser-sync').create();
 const gcmq = require('gulp-group-css-media-queries');
 const smartgrid = require('smart-grid');
+const postcss = require('gulp-postcss')
 
 const config = {
     root: './frontend/',
@@ -26,6 +27,9 @@ gulp.task('build', function() {
             browsers: ['> 0.1%'],
             cascade: false
         }))
+        .pipe(postcss([
+            require('postcss-assets')({loadPaths: ['frontend/inline']})
+        ]))
         .pipe(cleanCSS({
             level: 2
         }))
