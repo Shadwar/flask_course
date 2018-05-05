@@ -1,5 +1,8 @@
 venv
 .idea
 __pycache__
+node_modules
 
 *.pyc
+films.log*
+app.db
