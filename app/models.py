@@ -70,6 +70,10 @@ class Category(db.Model):
     title = db.Column(db.String(32), index=True, unique=True)
     slug = db.Column(db.String(32), index=True, unique=True)
     description = db.Column(db.Text)
+    sort = db.Column(db.Integer)
+    title_color = db.Column(db.String(7), default='#000000')
+    title_background = db.Column(db.String(7), default='#897cd9')
+    image = db.Column(db.String(128))
 
     def __repr__(self):
         return '<Category {}>'.format(self.title)
@@ -79,3 +83,7 @@ class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(32), index=True, unique=True)
     slug = db.Column(db.String(32), index=True, unique=True)
+    sort = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '<Tag {}>'.format(self.title)
