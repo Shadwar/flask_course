@@ -92,3 +92,19 @@ class Tag(db.Model):
 
     def __repr__(self):
         return '<Tag {}>'.format(self.title)
+
+
+class Slider(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(32), index=True, unique=True)
+    slides = db.relationship('Slide', backref='slider', lazy='dynamic')
+
+    def __repr__(self):
+        return '<Slider {}>'.format(self.title)
+
+
+class Slide(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.String(128))
+    sort = db.Column(db.Integer)
+    slider_id = db.Column(db.Integer, db.ForeignKey('slider.id'))

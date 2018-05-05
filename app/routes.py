@@ -5,7 +5,7 @@ from werkzeug.utils import redirect
 
 from app import app, db
 from app.forms import LoginForm, RegisterForm, EditProfileForm
-from app.models import User, Category, Tag, Post
+from app.models import User, Category, Tag, Post, Slider
 
 
 @app.before_request
@@ -24,7 +24,8 @@ def inject_tags_and_categories():
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='home')
+    main_slider = Slider.query.filter_by(title='main_slider').first()
+    return render_template('index.html', title='home', main_slider=main_slider)
 
 
 @app.route('/login', methods=['GET', 'POST'])

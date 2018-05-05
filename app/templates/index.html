@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="main-banner">
-        <div class="wrapper">
-            <div>Главный баннер</div>
-        </div>
-    </section>
+    {% if main_slider %}
+        <section class="main-banner">
+            <div class="wrapper">
+                <div>Главный баннер</div>
+            </div>
+        </section>
+    {% endif %}
     <section class="content">
         <div class="wrapper">
             {% if categories %}
