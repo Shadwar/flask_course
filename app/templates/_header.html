@@ -1,0 +1,62 @@
+<header>
+        <div class="header-top">
+            <div class="wrapper">
+                <div class="header-content">
+                    <div class="header-top__column header-top__title">Лучшие фильмы для Вашей души!</div>
+                    <div class="header-top__column">
+                        {% if current_user.is_anonymous %}
+                        <a href="{{ url_for('login') }}" class="header-top__link">Войти</a>
+                        <a href="{{ url_for('register') }}" class="header-top__link">Регистрация</a>
+                        {% else %}
+                        <a href="{{ url_for('logout') }}" class="header-top__link">Выйти</a>
+                        <a href="{{ url_for('user', username=current_user.username) }}" class="header-top__link">Профиль</a>
+                        {% endif %}
+                        <a href="#" class="header-top__link">Рекомендации</a>
+                        <a href="#" class="header-top__link">О нас</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="wrapper">
+                <div class="header-content">
+                    <div class="header-middle__column">
+                        <a class="header-middle__link" href="#">Личн. рост и внутр. сила</a><br>
+                        <a class="header-middle__link" href="#">О героях и личностях</a><br>
+                        <a class="header-middle__link" href="#">Жизненная помощь</a>
+                    </div>
+                    <div class="header-middle__column">
+                        <a class="header-middle__link" href="#">приключения</a><br>
+                        <a class="header-middle__link" href="#">комедии</a><br>
+                        <a class="header-middle__link" href="#">фантастика</a>
+                    </div>
+                    <div class="header-middle__column">
+                        <a class="header-middle__link" href="#">мелодрамы</a><br>
+                        <a class="header-middle__link" href="#">фэнтези</a><br>
+                        <a class="header-middle__link" href="#">биография</a>
+                    </div>
+                    <div class="header-middle__column">
+                        <a class="header-middle__link" href="#">мистика</a><br>
+                        <a class="header-middle__link" href="#">драма</a><br>
+                        <a class="header-middle__link" href="#">спорт</a>
+                    </div>
+                    <div class="header-middle__column">
+                        <a class="header-middle__link" href="#">военные</a><br>
+                        <a class="header-middle__link" href="#">детектив</a><br>
+                        <a class="header-middle__link" href="#">боевики</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="wrapper">
+                <div class="header-content">
+                    <a class="header-bottom__link" href="#">Вечер с любимыми</a>
+                    <a class="header-bottom__link" href="#">Семейный</a>
+                    <a class="header-bottom__link" href="#">С друзьями</a>
+                    <a class="header-bottom__link" href="#">Детям</a>
+                    <a class="header-bottom__link" href="#">Подборки</a>
+                </div>
+            </div>
+        </div>
+    </header>
