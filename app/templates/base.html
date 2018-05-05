@@ -16,7 +16,12 @@
                 <div class="header-content">
                     <div class="header-top__column header-top__title">Лучшие фильмы для Вашей души!</div>
                     <div class="header-top__column">
+                        {% if current_user.is_anonymous %}
                         <a href="{{ url_for('login') }}" class="header-top__link">Войти</a>
+                        <a href="{{ url_for('register') }}" class="header-top__link">Регистрация</a>
+                        {% else %}
+                        <a href="{{ url_for('logout') }}" class="header-top__link">Выйти</a>
+                        {% endif %}
                         <a href="#" class="header-top__link">Рекомендации</a>
                         <a href="#" class="header-top__link">О нас</a>
                     </div>
