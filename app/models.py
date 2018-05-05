@@ -6,6 +6,19 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login
 
 
+tags = db.Table(
+    'posts_tags',
+    db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key=True),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'), primary_key=True)
+)
+
+categories = db.Table(
+    'posts_categories',
+    db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key=True),
+    db.Column('tag_id', db.Integer, db.ForeignKey('category.id'), primary_key=True)
+)
+
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -43,6 +56,10 @@ class Post(db.Model):
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    tags = db.relationship('Tag', secondary=tags, lazy='subquery',
+                           backref=db.backref('posts', lazy=True))
+    categories = db.relationship('Category', secondary=categories, lazy='subquery',
+                           backref=db.backref('posts', lazy=True))
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
@@ -56,3 +73,9 @@ class Category(db.Model):
 
     def __repr__(self):
         return '<Category {}>'.format(self.title)
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(32), index=True, unique=True)
+    slug = db.Column(db.String(32), index=True, unique=True)
