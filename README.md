@@ -1,0 +1,1 @@
+Сайт на Flask по учебнику blog.miguelgrinberg.com Miguel Grinberg, на основе хобби-сайта жены.
