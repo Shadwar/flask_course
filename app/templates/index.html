@@ -8,48 +8,20 @@
     </section>
     <section class="content">
         <div class="wrapper">
+            {% if categories %}
             <div class="catalog">
+            {% for category in categories %}
                 <div class="catalog__item">
-                    <img src="{{ url_for('static', filename='img/catalog_1.jpg')}}" alt="Вечер с любимым" class="catalog__item-image">
+                    <img src="{{ category.image }}" alt="{{ category.title }}" class="catalog__item-image">
                     <div class="catalog__item-info">
-                        <div class="catalog__item-title catalog__item-title--love">Вечер с любимым</div>
-                        <div class="catalog__item-about">Фильмы для просмотра со второй половинкой, которые порадуют и мужчин и женщин! Проведите яркий и незабываемый вечер вдвоём! Веселые комедии, невероятные приключения, увлекательная фантастика, вдохновляющие фильмы</div>
-                        <a class="catalog__item-link">Подробнее</a>
+                        <div class="catalog__item-title" style="{{ category.get_title_style() }}">{{ category.title }}</div>
+                        <div class="catalog__item-about">{{ category.description }}</div>
+                        <a href="{{ url_for('index') }}" class="catalog__item-link">Подробнее</a>
                     </div>
                 </div>
-                <div class="catalog__item">
-                    <img src="{{ url_for('static', filename='img/catalog_2.jpg')}}" alt="Семейный" class="catalog__item-image">
-                    <div class="catalog__item-info">
-                        <div class="catalog__item-title catalog__item-title--family">Семейный</div>
-                        <div class="catalog__item-about">Душевные, яркие, увлекательные фильмы для просмотра всей семьёй! Порадуют молодежь, взрослых и любимых бабушек с дедушками) Объединят семью и подарят прекрасное настроение. Проведите увлекательный вечер вместе!</div>
-                        <a class="catalog__item-link">Подробнее</a>
-                    </div>
-                </div>
-                <div class="catalog__item">
-                    <img src="{{ url_for('static', filename='img/catalog_3.jpg')}}" alt="С друзьями" class="catalog__item-image">
-                    <div class="catalog__item-info">
-                        <div class="catalog__item-title catalog__item-title--friends">С друзьями</div>
-                        <div class="catalog__item-about">Объединяющие хорошую компанию. Светлые, яркие, увлекательные фильмы: невероятные приключения, уморительные комедии, вдохновляющие биографии, спорт, фантастика, изумительные истории о вере в себя, героях, личностях и др.</div>
-                        <a class="catalog__item-link">Подробнее</a>
-                    </div>
-                </div>
-                <div class="catalog__item">
-                    <img src="{{ url_for('static', filename='img/catalog_4.jpg')}}" alt="Детям" class="catalog__item-image">
-                    <div class="catalog__item-info">
-                        <div class="catalog__item-title catalog__item-title--children">Детям</div>
-                        <div class="catalog__item-about">Добрые, Светлые, поучительные фильмы о достойных людях и порядочных поступках. Помогут деткам увидеть пРавильные ориентиры в жизни ("по Ра" или "по Свету"), замечать и ценить хороших людей, золотые качества души</div>
-                        <a class="catalog__item-link">Подробнее</a>
-                    </div>
-                </div>
-                <div class="catalog__item">
-                    <img src="{{ url_for('static', filename='img/catalog_5.jpg')}}" alt="Подборки" class="catalog__item-image">
-                    <div class="catalog__item-info">
-                        <div class="catalog__item-title catalog__item-title--mix">Подборки</div>
-                        <div class="catalog__item-about">Тематические подборки фильмов на разные случаи: написывающие, вдохновляющие жить кинокартины, фильмы от депрессии, истории, лечащие душу, комедии, лучшие фильмы о любви и др.</div>
-                        <a class="catalog__item-link">Подробнее</a>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}

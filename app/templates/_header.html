@@ -20,42 +20,22 @@
         <div class="header-middle">
             <div class="wrapper">
                 <div class="header-content">
+                    {% for i in range(0, tags_count, 3) %}
                     <div class="header-middle__column">
-                        <a class="header-middle__link" href="#">Личн. рост и внутр. сила</a><br>
-                        <a class="header-middle__link" href="#">О героях и личностях</a><br>
-                        <a class="header-middle__link" href="#">Жизненная помощь</a>
+                        {% for tag in tags[i:i+3] %}
+                        <a class="header-middle__link" href="#">{{ tag.title }}</a><br>
+                        {% endfor %}
                     </div>
-                    <div class="header-middle__column">
-                        <a class="header-middle__link" href="#">приключения</a><br>
-                        <a class="header-middle__link" href="#">комедии</a><br>
-                        <a class="header-middle__link" href="#">фантастика</a>
-                    </div>
-                    <div class="header-middle__column">
-                        <a class="header-middle__link" href="#">мелодрамы</a><br>
-                        <a class="header-middle__link" href="#">фэнтези</a><br>
-                        <a class="header-middle__link" href="#">биография</a>
-                    </div>
-                    <div class="header-middle__column">
-                        <a class="header-middle__link" href="#">мистика</a><br>
-                        <a class="header-middle__link" href="#">драма</a><br>
-                        <a class="header-middle__link" href="#">спорт</a>
-                    </div>
-                    <div class="header-middle__column">
-                        <a class="header-middle__link" href="#">военные</a><br>
-                        <a class="header-middle__link" href="#">детектив</a><br>
-                        <a class="header-middle__link" href="#">боевики</a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
         <div class="header-bottom">
             <div class="wrapper">
                 <div class="header-content">
-                    <a class="header-bottom__link" href="#">Вечер с любимыми</a>
-                    <a class="header-bottom__link" href="#">Семейный</a>
-                    <a class="header-bottom__link" href="#">С друзьями</a>
-                    <a class="header-bottom__link" href="#">Детям</a>
-                    <a class="header-bottom__link" href="#">Подборки</a>
+                    {% for category in categories %}
+                    <a class="header-bottom__link" href="#">{{ category.title }}</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

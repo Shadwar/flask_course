@@ -5,7 +5,7 @@ from werkzeug.utils import redirect
 
 from app import app, db
 from app.forms import LoginForm, RegisterForm, EditProfileForm
-from app.models import User
+from app.models import User, Category, Tag
 
 @app.before_request
 def before_request():
@@ -13,22 +13,17 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
+@app.context_processor
+def inject_tags_and_categories():
+    tags = Tag.query.all()
+    categories = Category.query.all()
+    return dict(tags=tags, tags_count = len(tags), categories=categories)
+
 
 @app.route('/')
 @app.route('/index')
 def index():
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-
-    return render_template('index.html', title='home', posts=posts)
+    return render_template('index.html', title='home')
 
 
 @app.route('/login', methods=['GET', 'POST'])

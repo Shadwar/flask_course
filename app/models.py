@@ -75,6 +75,11 @@ class Category(db.Model):
     title_background = db.Column(db.String(7), default='#897cd9')
     image = db.Column(db.String(128))
 
+    def get_title_style(self):
+        result = "color:{};".format(self.title_color) if self.title_color else ""
+        result += "background-color:{};".format(self.title_background) if self.title_background else ""
+        return result
+
     def __repr__(self):
         return '<Category {}>'.format(self.title)
 
