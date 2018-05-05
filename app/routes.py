@@ -5,7 +5,8 @@ from werkzeug.utils import redirect
 
 from app import app, db
 from app.forms import LoginForm, RegisterForm, EditProfileForm
-from app.models import User, Category, Tag
+from app.models import User, Category, Tag, Post
+
 
 @app.before_request
 def before_request():
@@ -15,8 +16,8 @@ def before_request():
 
 @app.context_processor
 def inject_tags_and_categories():
-    tags = Tag.query.all()
-    categories = Category.query.all()
+    tags = Tag.query.order_by(Tag.sort.asc()).all()
+    categories = Category.query.order_by(Category.sort.asc()).all()
     return dict(tags=tags, tags_count = len(tags), categories=categories)
 
 
@@ -69,10 +70,7 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first()
-    posts = [
-        {'author': user, 'body': 'Тестовое описание фильма1'},
-        {'author': user, 'body': 'Тестовое описание фильма2'},
-    ]
+    posts = Post.query.filter(Post.user_id == user.id).order_by(Post.timestamp.desc()).all()
     return render_template('user.html', title='Профиль пользователя', user=user, posts=posts)
 
 
