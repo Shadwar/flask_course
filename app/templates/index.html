@@ -2,11 +2,30 @@
 
 {% block content %}
     {% if main_slider %}
-        <section class="main-banner">
-            <div class="wrapper">
-                <div>Главный баннер</div>
+    <section id="main-banner">
+        <div class="wrapper">
+            <div class="main-banner__slides">
+                <div class="main-banner__control main-banner__control--prev"></div>
+                <div class="main-banner__control main-banner__control--next"></div>
+                {% for slide in main_slider.slides %}
+                    {% if loop.index == 1 %}
+                    <div class="main-banner__slide main-banner__slide--current" data-slide="{{ loop.index }}"><img src="{{ slide.image }}" alt=""></div>
+                    {% else %}
+                    <div class="main-banner__slide" data-slide="{{ loop.index }}"><img src="{{ slide.image }}" alt=""></div>
+                    {% endif %}
+                {% endfor %}
             </div>
-        </section>
+            <div class="main-banner__pagination">
+                {% for slide in main_slider.slides %}
+                    {% if loop.index == 1 %}
+                    <div class="main-banner__page main-banner__page--current" data-slide="{{ loop.index }}"></div>
+                    {% else %}
+                    <div class="main-banner__page" data-slide="{{ loop.index }}"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     {% endif %}
     <section class="content">
         <div class="wrapper">
